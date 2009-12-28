@@ -1,0 +1,40 @@
+CakePHP Asset Plugin
+====================
+
+The idea of this plugin is to improve CakePHP's assets management,
+adding things like having multiple assets hosts, image thumbnailing,
+Conditional GET, etc.
+
+It lacks lots and lots of things at the moment, but I'm planning to
+add features as regular as possible.
+
+What is Conditional GET?
+------------------------
+
+Conditional GET is the ability to save bandwidth when re-requesting a
+resource served by a HTTP server. This translates into a pair of
+headers sent by the server when accessing a resource for the first
+time, especifically, Last-Modified and ETag. The web browser then,
+when request the same resource, can ask If-Modified-Since or
+If-None-Match, in order to ask the server if the resource has been
+modified or not since the last time. If it wasn't, the server answers
+with a 304 Not Modified header, which tells the browser to use the
+cached image.
+
+None of the frameworks I'm aware of (such as CakePHP or Ruby on Rails)
+manage this type of BASIC caching, which is not only a shame but a
+lame move. Hopefully I'll deploy a simple way to add this to your
+CakePHP applications.
+
+You can take a look at an implementation at
+
+http://stackoverflow.com/questions/204886/can-i-use-http-header-to-check-if-a-dynamic-page-has-been-changed/236380#236380
+
+And more information at the article about Conditional GET
+that Simon Willison wrote back in 2003
+
+http://simonwillison.net/2003/Apr/23/conditionalGet/
+
+And also Conditional GET for RSS hackers
+
+http://fishbowl.pastiche.org/2002/10/21/http_conditional_get_for_rss_hackers/
