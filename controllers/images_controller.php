@@ -6,6 +6,10 @@ class ImagesController extends AssetAppController {
   var $helpers = array('Asset.Images');
   var $uses = array();
 
+  function index() {
+      $this->cakeError('error404');
+  }
+
   private function send_status($code, $desc) {
     $this->header('HTTP/1.1 ' . $code . ' ' . $desc);
     $this->header('Content-Type: image/png');
